@@ -4,7 +4,7 @@ import Footer from "./Footer"
 
 const Body = () => {
   return (
-    <div>
+    <div className="bg-base-100">
         <NavBar/>
         <Outlet/>
         <Footer/>
