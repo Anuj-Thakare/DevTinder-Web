@@ -10,6 +10,7 @@ const Login = () => {
 
   const [emailId, setEmailId] = useState("anuj@gmail.com");
   const [password, setPassword] = useState("Anuj@123");
+  const [error, setError] = useState("");
   const dispatch = useDispatch();
   const navigation = useNavigate();
 
@@ -19,11 +20,12 @@ const Login = () => {
       emailId,
       password
     },{withCredentials: true});
-    //console.log(res.data);
+    console.log(res.data);
     dispatch(addUser(res.data));
     return navigation("/");
     }catch(err){
-      console.log(err);
+      setError( err?.response?.data || "Error: Invalid Credentials");
+      console.error(err);
     }
   };
 
@@ -42,6 +44,7 @@ const Login = () => {
             <input type="text" className="input" value={password} onChange={(e) => setPassword(e.target.value)} />
             <p className="label">Required</p>
           </fieldset>
+          <p className="text-red-700 text-base">{error}</p>
           <div className="card-actions justify-end">
             <button className="btn btn-primary" onClick={handleLogin}>Login</button>
           </div>
