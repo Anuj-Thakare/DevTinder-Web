@@ -16,13 +16,13 @@ const UserCard = ({ user }) => {
         }
     }
     return (
-        <div className="card bg-base-300 w-96 shadow-sm pb-50">
+        <div className="card bg-base-300 w-96 h-auto shadow-sm">
             <figure>
                 <img
                     src={photoUrl}
                     alt="Shoes" />
             </figure>
-            <div className="card-body">
+            <div className="card-body ">
                 <h2 className="card-title">{firstName + " " + lastName}</h2>
                 {age && gender && <p>{age + ", " + gender}</p>}
                 <p>{about}</p>

@@ -23,7 +23,7 @@ const Login = () => {
         emailId,
         password
       }, { withCredentials: true });
-      console.log(res.data);
+      //console.log(res.data);
       dispatch(addUser(res?.data?.data));
       return navigation("/");
     } catch (err) {
